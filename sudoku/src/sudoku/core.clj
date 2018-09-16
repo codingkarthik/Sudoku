@@ -18,3 +18,13 @@
   [board]
   (let [single-digits (range 1 10)]
     (map #(replace {-1 single-digits} %) board)))
+
+(defn clear-row-possiblities
+  "Given a value and a row will remove the value
+  from the possible choices from the row"
+  [value row]
+  (mapv (fn [v]
+          (if (coll? v)
+            (into [] (remove #(= % value) v))
+            v))
+        row))
