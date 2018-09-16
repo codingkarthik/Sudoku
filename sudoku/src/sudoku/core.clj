@@ -13,7 +13,8 @@
    [-1 4 -1 -1 5 -1 8 -1 7]])
 
 (defn replace-nil-values
-  "Utility function to replace -1 with [123456789] in every row"
+  "Utility function to replace every -1 with [1 2 3 4 5 6 7 8 9]
+  in the board"
   [board]
   (let [single-digits (range 1 10)]
     (map #(replace {-1 single-digits} %) board)))
